@@ -16,12 +16,13 @@ import env
 inv_url = env.UMBRELLA.get("inv_url")
 inv_token = env.UMBRELLA.get("inv_token")
 #Use a domain of your choice
-domain = "yourdomain.example"
+domain = "hello.com"
 
 #Construct the API request to the Umbrella Investigate API to query for the status of the domain
-url = 
-headers = 
-response = 
+url = f"{inv_url}/domains/categorization/{domain}?showLabels"
+headers = {"Authorization": f'Bearer {inv_token}'}
+response = requests.get(url, headers=headers)
+response.raise_for_status()
 
 #And don't forget to check for errors that may have occured!
 
